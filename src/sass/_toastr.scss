@@ -1,0 +1,31 @@
+
+.c-toastr {
+	position: fixed;
+	opacity: 0;
+	width: 320px;
+	height: auto;
+	top: 20px;
+	right: 20px;
+	z-index: 9999;
+	padding: 15px 5px;
+	border-radius: 5px;
+	@include global-shadow;
+	color: whitesmoke;
+	text-align: center;
+	border: 1px solid whitesmoke;
+
+	&-title {
+		margin: 0;
+	}
+
+	&-content {
+		font-size: 20px;
+		margin: 0;
+	}
+
+	&-footer-icon {
+		font-size: 50px;
+		margin-top: 10px;
+	}
+}
+

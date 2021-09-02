@@ -1,0 +1,401 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+@-webkit-keyframes show-in-image {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes show-in-image {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.navigation-container {
+  width: 100%;
+  background-color: cadetblue;
+  color: azure;
+  padding: 2%;
+  position: -webkit-sticky;
+  position: sticky;
+}
+
+.navigation-container ul {
+  list-style: none;
+  margin: 0 auto;
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navigation-container li {
+  width: 70px;
+  height: 70px;
+  background-color: transparent;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navigation-container a {
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 22px;
+  color: beige;
+  border-bottom: 2px solid transparent;
+  -webkit-transition: all ease-out 0.3s;
+  transition: all ease-out 0.3s;
+}
+
+.navigation-container a:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  border-bottom: 2px solid beige;
+}
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: azure;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.primary-container {
+  width: 50%;
+  margin: 0 auto;
+  padding: 5% 0;
+}
+
+.primary-container h2 {
+  text-align: center;
+  margin: 5% 0;
+}
+
+.primary-container p {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.loading-container {
+  width: 50%;
+  height: auto;
+  margin: auto;
+}
+
+.error {
+  font-size: 50px;
+  color: crimson;
+}
+
+.card {
+  width: 350px;
+  height: 600px;
+  cursor: pointer;
+  text-align: center;
+  background-color: beige;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+  box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+  margin: 5% 0;
+  -webkit-animation: show-in-image 1s ease-out 0.0s forwards;
+          animation: show-in-image 1s ease-out 0.0s forwards;
+}
+
+.trash-car {
+  float: right;
+  font-size: 30px;
+  font-weight: bold;
+  color: darkred;
+  padding-top: 5px;
+  padding-right: 10px;
+  -webkit-transition: all ease-out 0.3s;
+  transition: all ease-out 0.3s;
+}
+
+.trash-car:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  color: firebrick;
+}
+
+.h2 {
+  margin-top: 2.5rem;
+}
+
+.car-image {
+  width: 100%;
+  height: 250px;
+}
+
+.loading {
+  width: 100%;
+  height: 100%;
+}
+
+.container-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.like-btn {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 3px;
+  font-weight: bold;
+  -webkit-box-shadow: 0px 0px 7px 0px rgba(50, 50, 50, 0.75);
+  box-shadow: 0px 0px 7px 0px rgba(50, 50, 50, 0.75);
+  margin: 2%;
+  -webkit-transition: all ease-out 0.3s;
+  transition: all ease-out 0.3s;
+  background-color: cornflowerblue;
+  color: azure;
+  border: 2px solid cornflowerblue;
+}
+
+.like-btn:hover {
+  background-color: azure;
+  color: cornflowerblue;
+}
+
+.dislike-btn {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 3px;
+  font-weight: bold;
+  -webkit-box-shadow: 0px 0px 7px 0px rgba(50, 50, 50, 0.75);
+  box-shadow: 0px 0px 7px 0px rgba(50, 50, 50, 0.75);
+  margin: 2%;
+  -webkit-transition: all ease-out 0.3s;
+  transition: all ease-out 0.3s;
+  background-color: peru;
+  color: azure;
+  border: 2px solid peru;
+}
+
+.dislike-btn:hover {
+  background-color: azure;
+  color: peru;
+}
+
+.car-sign-in-btn {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 3px;
+  font-weight: bold;
+  -webkit-box-shadow: 0px 0px 7px 0px rgba(50, 50, 50, 0.75);
+  box-shadow: 0px 0px 7px 0px rgba(50, 50, 50, 0.75);
+  margin: 2%;
+  -webkit-transition: all ease-out 0.3s;
+  transition: all ease-out 0.3s;
+  background-color: darkcyan;
+  color: azure;
+  border: 2px solid darkcyan;
+}
+
+.car-sign-in-btn:hover {
+  background-color: azure;
+  color: darkcyan;
+}
+
+.auth-content {
+  font-size: 22px;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.form {
+  width: 60%;
+  margin: auto;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(95, 158, 160, 0.3)), to(rgba(95, 158, 160, 0.3)));
+  background: linear-gradient(rgba(95, 158, 160, 0.3), rgba(95, 158, 160, 0.3));
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.6);
+  box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.6);
+  padding: 3% 5%;
+}
+
+.form-input-container {
+  width: 100%;
+  margin: 5% 0;
+  position: relative;
+}
+
+.form-input {
+  width: 100%;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  border-bottom: 1px solid #fff;
+  color: #fff;
+  padding: 11px 30px;
+  font-size: 18px;
+}
+
+.form-label {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 300;
+  -webkit-transition: all ease-out 0.4s;
+  transition: all ease-out 0.4s;
+}
+
+.form-input:focus ~ .form-label {
+  -webkit-transform: scale(0.9) translate(-20px, -25px);
+          transform: scale(0.9) translate(-20px, -25px);
+  color: #5F9EA0;
+}
+
+.form-bottom-border {
+  width: 0;
+  height: 2px;
+  position: absolute;
+  background-color: #5F9EA0;
+  top: 42px;
+  left: 0;
+  -webkit-transition: all ease-out 0.3s;
+  transition: all ease-out 0.3s;
+}
+
+.form-input:focus ~ .form-bottom-border {
+  width: 100%;
+}
+
+.form-textarea {
+  width: 100%;
+  height: 200px;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #ffff;
+  padding: 10px;
+  color: #fff;
+  font-size: 18px;
+  -webkit-transition: all ease-out 0.3s;
+  transition: all ease-out 0.3s;
+}
+
+.form-label-textarea {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 300;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.form-textarea:focus ~ .form-label-textarea {
+  -webkit-transform: scale(0.9) translate(-20px, -25px);
+          transform: scale(0.9) translate(-20px, -25px);
+  color: #5F9EA0;
+}
+
+.form-bottom-border-textarea {
+  position: absolute;
+  width: 0;
+  height: 2px;
+  top: 199px;
+  left: 0;
+  background-color: #5F9EA0;
+  -webkit-transition: all ease-out 0.5s;
+  transition: all ease-out 0.5s;
+}
+
+.form-textarea:focus ~ .form-bottom-border-textarea {
+  width: 100%;
+}
+
+.form-subscribe-btn {
+  outline: none;
+  cursor: pointer;
+  border: 1px solid #5F9EA0;
+  padding: 10px 20px;
+  background-color: azure;
+  color: #5F9EA0;
+  border-radius: 5px;
+  -webkit-transition: all ease-out 0.3s;
+  transition: all ease-out 0.3s;
+}
+
+.form-subscribe-btn:hover {
+  background-color: #5F9EA0;
+  color: azure;
+  border: 1px solid azure;
+}
+
+.footer {
+  width: 100%;
+  padding: 3% 0;
+  background-color: cadetblue;
+  color: azure;
+}
+
+.footer-content {
+  font-size: 16px;
+  text-align: center;
+}
+
+.o-h2 {
+  color: purple;
+}
+/*# sourceMappingURL=App.css.map */

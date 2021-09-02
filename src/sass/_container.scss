@@ -1,0 +1,72 @@
+.app {
+	position: relative;
+}
+
+.main-container {
+	width: 100%;
+	margin: 0;
+	padding: 0% 3%;
+	background: linear-gradient(rgba(1,135,134,0.15), rgba(1,135,134,0.15));
+
+	h2 {
+		text-align: center;
+	}
+}
+
+
+.container {
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+	align-items: center;
+}
+
+
+.primary-container {
+	width: 65%;
+	margin: 0 auto;
+	padding: 5% 3%;
+	background-color:rgb(255,255,255);
+
+	h2 {
+		text-align: center;
+		margin: 5% 0;
+	}
+
+	p {
+		font-size: 18px;
+		line-height: 24px;
+		margin: 0;
+	}
+}
+
+.loading-container {
+	width: 50%;
+	height: auto;
+	margin: auto;
+}
+
+.error {
+	font-size: 50px;
+	color:crimson;
+}
+
+.page-not-found {
+	margin: 4% auto;
+	text-align: center;
+	font-size: 50px;
+	color:#404040;
+}
+
+.page-not-found-img {
+	opacity: 0;
+	display: block;
+	width: 60%;
+	margin: 2% auto;
+	animation: isShow 1.5s ease-out 0.1s forwards;
+}
+
+
+

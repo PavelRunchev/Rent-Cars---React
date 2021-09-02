@@ -1,0 +1,54 @@
+@import './_mixin.scss';
+
+@keyframes show-in-image {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+
+@keyframes animate-icon {
+	0% { 
+		-webkit-box-shadow: 0px 0px 21px 0px rgba(1,135,134, 0.9);
+		-moz-box-shadow:    0px 0px 21px 0px rgba(1,135,134, 0.9);
+		box-shadow:         0px 0px 21px 0px rgba(1,135,134, 0.9);
+		border: 1px solid rgb(255,255,255);
+	 }
+	50% { 
+		-webkit-box-shadow: 0px 0px 21px 0px rgba(255,255,255, 0.95);
+		-moz-box-shadow:    0px 0px 21px 0px rgba(255,255,255, 0.95);
+		box-shadow:         0px 0px 21px 0px rgba(255,255,255, 0.95);
+		border: 1px solid rgb(1,135,134);
+	 }
+	100% { 
+		-webkit-box-shadow: 0px 0px 21px 0px rgba(1,135,134, 0.9);
+		-moz-box-shadow:    0px 0px 21px 0px rgba(1,135,134, 0.9);
+		box-shadow:         0px 0px 21px 0px rgba(1,135,134, 0.9);
+		border: 1px solid rgb(255,255,255);
+	 }
+}
+
+@keyframes showAdminOptions {
+	from { display: block; opacity: 0; }
+	to { opacity: 1; }
+}
+
+@keyframes showRemoveMessageCard {
+	from { 
+		display: block;
+		opacity: 0; 
+	}
+	to { 
+		opacity: 1; 
+	}
+}
+
+@keyframes hideRemoveMessageCard {
+	from { 
+		opacity: 1; 
+	}
+	to { 
+		opacity: 0; 
+		display: block;
+	}
+}
+
+

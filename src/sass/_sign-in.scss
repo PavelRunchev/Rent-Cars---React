@@ -1,0 +1,163 @@
+
+.sign-in-container {
+	width: 100%;
+	height: 450px;
+	margin: 0 auto;
+	display: flex;
+	border-radius: 5px;
+	@include form-shadow;
+}
+
+.sign-in-image {
+	width: 65%;
+	height: 100%;
+	overflow: hidden;
+	border-bottom-left-radius: 5px;
+	border-top-left-radius: 5px;
+}
+
+.sign-in-form-container {
+	background-color: whitesmoke;
+	width: 350px;
+	height: auto;
+	padding: 2% 5%;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+
+
+.sign-in-form {
+	width: 100%;
+	height: 100%;
+}
+
+.sign-in-form-tittle {
+	width: 100px;
+	margin: 20px auto !important;
+	padding: 30px 5px;
+	color: dimgray;
+	border-radius: 50%;
+	background-color: transparent;
+	transform: all 0.4s;
+}
+
+.sign-in-form-input-container {
+	position: relative;
+	width: 100%;
+	margin: 40px 0;
+}
+
+.sign-in-form-input {
+	width: 100%;
+	border: none;
+	outline: none;
+	background: transparent;
+	padding: 7px 30px;
+	font-size: 18px;
+	border-bottom: 1px solid dimgray;
+	color: dimgray;
+}
+
+.sign-in-form-label {
+	position: absolute;
+	top: 11px;
+	left: 40px;
+	color: dimgray;
+	font-size: 18px;
+	font-weight: 300;
+	transition: 0.4s;
+}
+
+.sign-in-icon-email,
+.sign-in-icon-password {
+	color: dimgray;
+	position: absolute;
+	top: 15px;
+	left: 5px;
+	font-size: 16px;
+	transition: 0.4s;
+}
+
+.sign-in-input-email:focus ~ .sign-in-label-email {
+	color: #5F9EA0;
+	transform: scale(0.9) translate(-20px, -30px);
+}
+
+.sign-in-input-password:focus ~ .sign-in-label-password {
+	color: #5F9EA0;
+	transform: scale(0.9) translate(-20px, -30px);
+}
+
+.sign-in-input-email:focus ~ .sign-in-icon-email {
+	color:#5F9EA0;
+}
+
+.sign-in-input-password:focus ~ .sign-in-icon-password {
+	color:#5F9EA0;
+}
+
+.sign-in-input-border-bottom-effect {
+	position: absolute;
+	left: 0;
+	top: 36px;
+	width: 0;
+	height: 2px;
+	background-color: #5F9EA0;
+	transition: 0.4s;
+}
+
+.sign-in-input-email:focus ~ .sign-in-input-border-bottom-effect {
+	width: 100%;
+}
+
+.sign-in-input-password:focus ~ .sign-in-input-border-bottom-effect {
+	width: 100%;
+}
+
+.sign-in-btn {
+	cursor: pointer;
+	margin: 30px 0 10px 0;
+	outline: none;
+	border: none;
+	padding: 15px 45px;
+	border-radius: 2rem;
+	text-transform: uppercase;
+	@include no-shadow;
+	color: whitesmoke;
+	background-color: #5F9EA0;
+	border: 1px solid #5F9EA0;
+	transition: all ease-out 0.4s;
+
+	&:hover {
+		background-color: whitesmoke;
+		color: #5F9EA0;
+		@include global-shadow;
+	}
+}
+
+.sign-in-account-text {
+	color: dimgray;
+	font-size: 14px;
+	font-weight: 300;
+}
+
+.sign-in-dont-have-an-account {
+	display: inline-block;
+	text-decoration: none;
+	color:#5F9EA0;
+	font-size: 16px;
+	font-weight: 400;
+	transition: all ease-out 0.3s;
+
+	&:hover {
+		transform: scale(1.05) translateX(2px);
+	}
+}
+
+
+
+
+
+
+

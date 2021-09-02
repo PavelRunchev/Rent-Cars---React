@@ -1,0 +1,273 @@
+.post-container {
+	width: 400px;
+	position: absolute;
+	top:120px;
+	left: -405px;
+	z-index: 100;
+	background: linear-gradient(rgba(1,135,134,0.85), rgba(1,135,134,0.85));
+	@include form-shadow;
+	border-radius: 5px;
+	
+}
+
+.post-title-container {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.post-title {
+	color: beige;
+	padding-left: 3%;
+}
+
+.post-comments-back {
+	cursor: pointer;
+	color: beige;
+	padding-right: 3%;
+	margin: 3% 0;
+	font-size: 36px;
+	transition: all 0.4s;
+	&:hover {
+		color: rgba(217,217,217,0.85);
+	}
+}
+
+.post-no-posts {
+	color: white;
+	font-weight: bold;
+	margin: 10% 0;
+}
+
+//post elements!
+.post-user-container {
+	display: flex;
+	flex-direction: row;
+	padding: 2% 0;
+}
+
+.post-container-posts {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	margin: 3% 0;
+}
+
+.post-user-profile-container {
+	width: 30%;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	padding: 5px;
+}
+
+.post-user-content-container {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	padding: 5px;
+	justify-items: center;
+}
+
+.post-user-content-title-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	position: relative;
+
+	h6 {
+		margin: 0;
+		color: beige;
+	}
+}
+
+.post-image {
+	width: 100%;
+	height: 100px;
+	border-radius: 5px;
+	@include form-shadow;
+}
+
+.post-creator-email {
+	margin: 10px 0 0 0;
+	font-size: 13px;
+	font-weight: 600;
+	color: beige;
+	text-align: center;
+}
+
+.post-content {
+	text-align: left;
+	color: white;
+	font-size: 12px;
+}
+
+.post-user-index {
+	padding-right: 30px;
+}
+
+.post-user-admin-settings-container {
+	position: absolute;
+	top: -3px;
+	left: 252px;
+}
+
+.post-user-admin-settings {
+	display: none;
+	cursor: pointer;
+	width: 40px;
+	height: 60px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	position: absolute;
+	top: -3px;
+	left: 25px;
+	z-index: 0;
+	background: rgba(245,245,220,1);
+	border-radius: 5px;
+	@include form-shadow;
+	animation: showAdminOptions 0.8s ease-out;
+}
+
+.post-user-cog-btn {
+	cursor: pointer;
+	font-size: 16px;
+	transition: all 0.4s;
+
+	&:hover {
+		color: rgb(151, 116, 1);
+	}
+}
+
+.post-user-trash-btn {
+	cursor: pointer;
+	font-size: 18px;
+	margin: 0 6px;
+	color: rgb(170, 0, 0);
+	transition: all 0.4s;
+
+	&:hover {
+		color: rgb(214, 8, 8);
+	}
+}
+
+.post-user-eye-btn,
+.post-user-eye-slash-btn {
+	cursor: pointer;
+	font-size: 17px;
+	margin: 0 6px;
+	color: rgb(151, 116, 1);
+	transition: all 0.4s ease-out;
+
+	&:hover {
+		color: rgb(244,189,0);
+	}
+}
+
+.post-user-eye-span {
+	cursor: pointer;
+	display: none;
+	opacity: 0;
+	position: absolute;
+	top: 75px;
+	left: -16px;
+	color: rgb(151, 116, 1);
+	padding: 5px 7px;
+	@include form-shadow;
+	border-radius: 2px;
+	background: whitesmoke;
+	text-align: center;
+	animation: showAdminOptions 1s;
+
+	&:hover {
+		display: block;
+		opacity: 1;
+	}
+}
+
+.post-user-eye-span::before {
+	position: absolute;
+	z-index: 1;
+	content: "";
+	right: calc(50% - 10px);
+	top: -10px;
+	border-style: solid;
+	border-width: 0 10px 10px 10px;
+	border-color: transparent transparent whitesmoke transparent;
+	transition-duration: 0.3s;
+	transition-property: transform;
+}
+
+.post-user-eye-btn,
+.post-user-eye-slash-btn:hover ~ .post-user-eye-span {
+	display: block;
+	opacity: 1;
+	width: 70px;
+}
+
+.post-user-eye-btn:hover ~ .post-user-eye-span {
+	display: block;
+	opacity: 1;
+	width: 70px;
+}
+
+
+
+//create post form area
+.post-textarea {
+	display: block;
+	width: 95%;
+	height: 100px;
+	margin: 5% auto;
+	border-radius: 5px;
+	border: none;
+	outline: none;
+	padding: 2%;
+	font-size: 18px;
+	background: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85));
+	@include form-shadow;
+}
+
+
+.post-btn-sesnd {
+	@include global-btn;
+	display: block;
+	margin: 0 3% 3% auto;
+	color: rgb(1,135,134);
+	border: 1px solid white;
+	transition: all 0.4s;
+	&:hover {
+		background-color: rgb(1,135,134);
+		color: white;
+	}
+}
+
+// show btn
+.post-comments-btn-container {
+	cursor: pointer;
+	position: fixed;
+	top: 50vh;
+	left: 5px;
+	border-radius: 50%;
+	padding: 10px 10px 2px 10px;
+	background: whitesmoke;
+	animation: animate-icon 3s ease-out 0.1s forwards infinite;
+}
+
+.post-comments-show-btn {
+	color: rgb(1,135,134);
+	background: none;
+	font-size: 50px;
+	padding: 0;
+	border: none;
+}
+
+
+
+
+
+
+

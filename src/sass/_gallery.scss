@@ -1,0 +1,135 @@
+
+.services {
+	width: 100%;
+
+	&-gallery-container {
+		width: 100%;
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-around;
+		align-items: center;
+		position: relative;
+	}
+
+
+	&-image-container {
+		opacity: 0;
+		margin: 40px;
+		width: 300px;
+		height: 300px;
+		cursor: pointer;
+		position: relative;
+		top: 0;
+		left: 0;
+		z-index: 0;
+		transition: all 0.4s;
+		animation: show-in-image 1.5s ease-out 0.0s forwards;
+	}
+
+
+	&-image-remove {
+		position: absolute;
+		top: 10px;
+		right: 20px;
+		font-size: 24px;
+		z-index: 1;
+		color: darkred;
+		transition: all 0.4s;
+		&:hover {
+			color:crimson;
+			transform: scale(1.5);
+		}
+	}
+
+	&-image-share {
+		position: absolute;
+		top: 45px;
+		right: 15px;
+		font-size: 24px;
+		z-index: 1;
+		color:dodgerblue;
+		transition: all 0.4s;
+		&:hover {
+			color:deepskyblue;
+		}
+	}
+
+	&-image-eye {
+		position: absolute;
+		top: 75px;
+		right: 15px;
+		font-size: 24px;
+		z-index: 1;
+		color: burlywood;
+		transition: all 0.4s;
+		&:hover {
+			color:darkgoldenrod;
+		}
+	}
+
+	&-image {
+		width: 100%;
+		height: 100%;
+		border-radius: 3px;
+		position: absolute;
+		top: 0;
+		left: -40px;
+		z-index: 1;
+		filter: blur(0);
+		-webkit-box-shadow: 0px 0px 9px 0px rgba(50, 50, 50, 0.75);
+		-moz-box-shadow:    0px 0px 9px 0px rgba(50, 50, 50, 0.75);
+		box-shadow:         0px 0px 9px 0px rgba(50, 50, 50, 0.75);
+		transition: all 0.4s;
+
+		&:hover {
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+
+	&-image-backside {
+		width: 90%;
+		height: 80%;
+		margin: auto auto;
+		position: absolute;
+		top: 30px;
+		left: -20px;
+		z-index: 0;
+		border-radius: 3px;
+		-webkit-box-shadow: 0px 0px 9px 0px rgba(50, 50, 50, 0.75);
+		-moz-box-shadow:    0px 0px 9px 0px rgba(50, 50, 50, 0.75);
+		box-shadow:         0px 0px 9px 0px rgba(50, 50, 50, 0.75);
+		background: linear-gradient(rgba(1,191,255,0.05), rgba(1,191,255,0.05));
+		transition: all 0.4s;
+		animation: show-in-image 1.5s ease-out 0.0s forwards;
+
+		&:hover {
+			transform: translateX(60px);
+		}
+	}
+
+	&-image:hover ~&-image-backside {
+		transform: translateX(60px);
+	}
+}
+
+.gallery-btn-upload-info {
+	text-align: center;
+}
+
+.gallery-btn-upload-container {
+	margin: 5% 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.service-image-container-1 {
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+
+
+

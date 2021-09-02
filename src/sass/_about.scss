@@ -1,0 +1,32 @@
+.about-click-container {
+	width: 350px;
+	margin: 10% auto;
+}
+
+.about-click-btn {
+	@include global-btn;
+	background-color:cornflowerblue;
+	color:azure;
+	border: 2px solid cornflowerblue;
+
+	&:hover {
+		background-color: azure;
+		color: cornflowerblue;
+	}
+}
+
+p {
+	text-align: center;
+}
+
+.get-throw-error {
+	@include global-btn;
+	background-color:darkred;
+	color:azure;
+	border: 2px solid darkred;
+
+	&:hover {
+		background-color: azure;
+		color: darkred;
+	}
+}

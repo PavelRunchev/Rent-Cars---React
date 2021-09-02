@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` should render About page 1`] = `
+<div
+  className="primary-container"
+>
+  <h2>
+    About Section
+  </h2>
+  <button
+    className="get-error"
+    onClick={[Function]}
+  >
+    Get Throw Error
+  </button>
+  <p>
+    Does that all sound complicated? It really isn’t. The main purpose of your About Us page is to give your visitors a glimpse into who you are as a person or a business (or sometimes both). As users discover your brand, they need to distinguish what sets you apart and makes you… you. This often requires finding the right balance between compelling content and a design carefully planned to look the part. Conveying your identity in a fun and approachable – but also reliable and informative – way is challenging. If you know who you are and your goal for your site, the About Us page should come naturally. However, if you’re looking for some inspiration, you can always check out the following 25 awesome examples of About Us pages.
+  </p>
+  <p>
+    ToyFight is an award-winning creative design agency. You’ll find the About Page at the top of the menu under the Who section. This page has a unique feel, thanks to the deconstructed action figures representing the founders, Leigh Whipday and Jonny Lander. The great attention to detail and interactivity also reflect the company’s 16 years of experience.
+  </p>
+  <p>
+    Why? Because as much as you love good design and inspiring illustrations, you also want to meet the people that curate all the content for you. Furthermore, it’s equally rewarding when you realize that they are just as eager to start a visual dialogue with you. Nathan Strandberg and Katie Kirk are doing what makes them happy, and this is obvious throughout their page.
+  </p>
+  <p>
+    ToyFight is an award-winning creative design agency. You’ll find the About Page at the top of the menu under the Who section. This page has a unique feel, thanks to the deconstructed action figures representing the founders, Leigh Whipday and Jonny Lander. The great attention to detail and interactivity also reflect the company’s 16 years of experience.
+  </p>
+</div>
+`;
+
+exports[` should render footer component 1`] = `<Footer />`;

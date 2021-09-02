@@ -1,0 +1,23 @@
+{
+	"compilerOptions": {
+        "outDir": "./build/", // path to output directory
+        "strictNullChecks": true, // enable strict null checks as a best practice
+        "module": "es6", // specify module code generation
+        "jsx": "react", // use typescript to transpile jsx to js
+        "target": "es6", // specify ECMAScript target version
+        "allowJs": true, // allow a partial TypeScript and JavaScript codebase
+        
+        "noImplicitAny": true,
+        "noImplicitReturns": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+		"moduleResolution": "node"
+    },
+    "exclude": [
+        "node_modules"
+    ],
+    "include": [
+        "./source/**/*.tsx",
+        "./source/**/*.ts"
+    ]
+}
