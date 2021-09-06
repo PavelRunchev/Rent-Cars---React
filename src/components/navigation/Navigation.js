@@ -8,6 +8,7 @@ import RequestCloudinary from '../../utilities/RequestCloudinary'
 import myToastr from '../../utilities/toastr';
 import cookie from 'react-cookies';
 import Error from '../../utilities/error';
+import logo from '../../public/car-rent-logo.png';
 
 class Navigation extends React.Component {
 	constructor(props) {
@@ -150,6 +151,9 @@ class Navigation extends React.Component {
 
 		return (
 			<nav className="navigation-container">
+				<div>
+					<img src={logo} className="navigation-container-logo" alt="logo"/>
+				</div>
 				<ul className="navigation-list">
 					<li><NavLink className="home" onClick={this.clickHandleHome} to="/home" replace >Home</NavLink></li>
 					<li><NavLink className="about" onClick={this.clickHandleAbout} to="/about" replace>About</NavLink></li>

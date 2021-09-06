@@ -1,6 +1,5 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import withRemoveMessageWrapper from '../HOC/RemoveMessageWrapper';
 
 const RemoveMessage = (props) => {
 	return (
@@ -25,4 +24,4 @@ const RemoveMessage = (props) => {
 	)
 }
 
-export default withRemoveMessageWrapper(RemoveMessage);
+export default RemoveMessage;

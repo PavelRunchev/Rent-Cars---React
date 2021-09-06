@@ -217,6 +217,12 @@
 
 
 //create post form area
+.post-form {
+	background: rgba(245,245,220,1);
+	padding: 1%;
+	margin: 4% 0;
+}
+
 .post-textarea {
 	display: block;
 	width: 95%;
@@ -232,17 +238,15 @@
 }
 
 
-.post-btn-sesnd {
+.post-btn-send {
 	@include global-btn;
+	@include btn-hover-effect;
 	display: block;
 	margin: 0 3% 3% auto;
 	color: rgb(1,135,134);
 	border: 1px solid white;
 	transition: all 0.4s;
-	&:hover {
-		background-color: rgb(1,135,134);
-		color: white;
-	}
+
 }
 
 // show btn

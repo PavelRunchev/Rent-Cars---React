@@ -210,10 +210,10 @@ class Posts extends React.Component {
 						</div>
 
 						<hr/>
-						<form>
+						<form className="post-form">
 							<textarea onChange={this.changeHandler} className="post-textarea" name="description" placeholder="description">
 							</textarea>
-							<button className="post-btn-sesnd" onClick={(e) => this.createPost(e)}>Send</button>
+							<button className="post-btn-send" onClick={(e) => this.createPost(e)}>Send</button>
 						</form>
 					</div>
 					<div className="post-comments-btn-container">

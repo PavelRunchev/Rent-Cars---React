@@ -83,7 +83,7 @@ class Car extends Component {
 		return (
 			<div className="card">
 				
-				{auth.isAdmin() ? <FontAwesomeIcon icon="trash" className="trash-car" onClick={() => this.props.removeCar(car._id)}/>: null}
+				{auth.isAdmin() ? <FontAwesomeIcon icon="trash" className="trash-car" onClick={(e) => this.props.removeCar(e, car._id)}/>: null}
 				<h2 className="h2">Brand: {car.make}</h2>
 				<h3>Model: {car.model}</h3>
 				<img className="card-image" src={car.imageUrl} alt="img-galery"/>

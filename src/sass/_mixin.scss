@@ -12,6 +12,9 @@
 	text-transform: uppercase;
 	transition: all ease-out 0.3s;
 
+	&:hover {
+		@include global-shadow;
+	}
 }
 
 @mixin global-shadow {
@@ -31,6 +34,11 @@
 	-webkit-box-shadow: 0px 0px 0px 0px rgba(50, 50, 50, 0.75);
 	-moz-box-shadow:    0px 0px 0px 0px rgba(50, 50, 50, 0.75);
 	box-shadow:         0px 0px 0px 0px rgba(50, 50, 50, 0.75);	
+}
+
+@mixin btn-hover-effect {
+	-webkit-box-shadow: 0px 2px 9px 0px rgba(50, 50, 50, 0.75); 
+	box-shadow: 0px 2px 9px 0px rgba(50, 50, 50, 0.75);
 }
 
 @keyframes isShow {

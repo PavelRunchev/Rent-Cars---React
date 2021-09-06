@@ -1,33 +1,38 @@
-import React, {Suspense, lazy } from 'react';
-import AuthContext from './services/authContext';
-import { HashRouter, Route, Switch } from 'react-router-dom';
-import myToastr from './utilities/toastr';
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faCcPaypal } from '@fortawesome/free-brands-svg-icons';
+import {
+  faArrowAltCircleLeft, faCaretDown, faCheck, faCog, faCommentAlt,
+  faComments, faEnvelope, faEnvelopeSquare, faExclamationCircle,
+  faExclamationTriangle, faEye, faEyeSlash, faHeart, faLock, faMapMarkerAlt,
+  faMobileAlt, faShare, faTimes, faTrash, faTrashAlt, faUser, faUserTie
+} from "@fortawesome/free-solid-svg-icons";
+import React, { lazy, Suspense } from 'react';
 import cookie from 'react-cookies';
-import auth from  './utilities/auth';
-import Error from './utilities/error';
-import RequestUser from './utilities/RequestUser';
-
-
+import { HashRouter, Route, Switch } from 'react-router-dom';
 //import global sass file (App.scss)! No needed import in every component!
 import './App.scss';
-
-//Components
-import Navigation from './components/navigation/Navigation';
 import Cars from './components/Cars';
 import Footer from './components/footer/Footer';
-import PotentialError from './components/PotentialError';
 import Loading from './components/Loading/Loading';
+//Components
+import Navigation from './components/navigation/Navigation';
 import PageNotFound from './components/PageNotFound';
+import PotentialError from './components/PotentialError';
 import Posts from './components/User/Posts';
+import AuthContext from './services/authContext';
+import auth from './utilities/auth';
+import Error from './utilities/error';
+import RequestUser from './utilities/RequestUser';
+import myToastr from './utilities/toastr';
 
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { faTrash, faCheck, faExclamationCircle, faExclamationTriangle, faUser, 
-  faUserTie, faEnvelope, faLock, faMapMarkerAlt, faMobileAlt, faHeart, faCaretDown, 
-  faTimes, faShare, faEye, faComments, faArrowAltCircleLeft, faCommentAlt, faEnvelopeSquare, faTrashAlt, faEyeSlash, faCog } from "@fortawesome/free-solid-svg-icons";
+
+
+
+
 library.add( faTrash, faCheck, faExclamationCircle, faExclamationTriangle, 
   faUser, faUserTie, faEnvelope, faLock, faMapMarkerAlt, faMobileAlt, faHeart, faCaretDown, 
   faTimes, faShare, faEye, faComments, faArrowAltCircleLeft, faCommentAlt, faEnvelopeSquare, 
-  faTrashAlt, faEyeSlash, faEye, faCog, faExclamationTriangle);
+  faTrashAlt, faEyeSlash, faEye, faCog, faExclamationTriangle, faCcPaypal);
 
 const About = lazy(() => import('./components/About'));
 const Contacts = lazy(() => import('./components/Contacts'));

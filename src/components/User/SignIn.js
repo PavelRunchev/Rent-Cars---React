@@ -67,7 +67,7 @@ class SignIn extends React.Component {
 		RequestUser.signIn({ email: email, password: encryptedPassword })
 			.then(data => {
 				cookie.save('e-jwt[@$64^id]!', data.data.user._id, {
-					maxAge: (24 * 60 * 60 * 1000),
+					maxAge: 3600000,
 					path: '/',
 					secure: true,
 					httpOnly: false

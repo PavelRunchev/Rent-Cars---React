@@ -103,7 +103,7 @@ class MyRoom extends React.Component {
 						{user ? <p><span>City:</span> <b>{user.city}</b></p> : null}
 						{user ? <p><span>PhoneNumber:</span> <b>{user.phoneNumber}</b></p> : null}
 						{user ? <p><span>Email:</span> <b>{user.email}</b></p> : null}
-						{/* {user ? <p><span>Rent cars:</span> <b>{user.carsHistory.length}</b></p> : null} */}
+
 						<hr></hr>
 						<p>You have image file? You want to shows it? You want to upload, do it!</p>
 						{profileImageUrl 
@@ -114,11 +114,14 @@ class MyRoom extends React.Component {
 						}
 						<button type="button" className="my-room-upload-image-btn" onClick={this.props.widget}>Upload Image</button>
 					</div>
+
+					<hr></hr>
 					{auth.isAdmin() ? <div>
 						<h3>Only Admin can created rent cars!</h3>
 						<form className="my-room-create-card-form" onSubmit={this.handleCreateCard}>
 							<h2>Form Car</h2>
-							<div>Some time you can't paste url address? solution: Refresh your browser or close brouser and log in agains!</div>
+							<div className="my-room-create-card-form-info">Some time you can't paste url address? solution one: Refresh your browser or close brouser and log in agains!</div>
+							<div className="my-room-create-card-form-info">solution two: Copy link with mouse select (link blue ground font!)after paste in input fields!</div>
 							<input id="make" className="my-room-create-card-input" placeholder="make" onChange={this.changeHandler}/>
 							<input id="model" className="my-room-create-card-input" placeholder="model" onChange={this.changeHandler}/>
 							<input id="url" className="my-room-create-card-input" type="text" placeholder="url address" onChange={this.changeHandler}/>
@@ -126,7 +129,9 @@ class MyRoom extends React.Component {
 							<input id="price" className="my-room-create-card-input" placeholder="price" onChange={this.changeHandler}/>
 							<button type="submit" className="my-room-forms-create-btn">Create</button>
 						</form>
+						<hr></hr>
 					</div>: null}
+
 				</div>
 			</div>
 		)

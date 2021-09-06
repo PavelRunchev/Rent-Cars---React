@@ -54,12 +54,12 @@ class Post extends React.Component {
 				<div className="post-user-container" style={{backgroundColor: index % 2 === 0 ? 'rgba(245,245,220,1)' : 'none'}}>
 					<div className="post-user-profile-container">
 						<img src={imageUrl} className="post-image" alt="post-img"/>
-						<h6 className="post-creator-email" style={{color: index % 2 === 0 ? 'rgba(1,135,134,1' : 'rgba(245,245,220,1)'}}>{userFirstName}</h6>
+						<h6 className="post-creator-email" style={{color: index % 2 === 0 ? 'rgba(1,135,134,1)' : 'rgba(245,245,220,1)'}}>{userFirstName}</h6>
 					</div>
 					<div className="post-user-content-container">
-						<div className="post-user-content-title-container" style={{color: index % 2 === 0 ? 'rgba(1,135,134,1' : 'rgba(245,245,220,1)'}}>
-							<h6 className="post-date" style={{color: index % 2 === 0 ? 'rgba(1,135,134,1' : 'rgba(245,245,220,1)'}}>{convertTime}</h6>
-							<h6 className="post-user-index" style={{color: index % 2 === 0 ? 'rgba(1,135,134,1' : 'rgba(245,245,220,1)'}}>#{index}</h6>
+						<div className="post-user-content-title-container" style={{color: index % 2 === 0 ? 'rgba(1,135,134,1)' : 'rgba(245,245,220,1)'}}>
+							<h6 className="post-date" style={{color: index % 2 === 0 ? 'rgba(1,135,134,1)' : 'rgba(245,245,220,1)'}}>{convertTime}</h6>
+							<h6 className="post-user-index" style={{color: index % 2 === 0 ? 'rgba(1,135,134,1)' : 'rgba(245,245,220,1)'}}>#{index}</h6>
 							<div className="post-user-admin-settings-container">
 								<FontAwesomeIcon icon="cog" className="post-user-cog-btn" onClick={this.adminOptions}/>
 								{showAdminOptions ? <div className="post-user-admin-settings">

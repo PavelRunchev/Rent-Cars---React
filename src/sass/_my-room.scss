@@ -4,7 +4,7 @@
 
 	&-forms {
 		width: 100%;
-		background: linear-gradient(rgba(1,135,134, 0.5), rgba(1,135,134,0.5));
+		background: linear-gradient(rgba(1,135,134, 0.35), rgba(1,135,134,0.35));
 		border-radius: 5px;
 		-webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.6);
 		-moz-box-shadow:    0px 0px 5px 0px rgba(50, 50, 50, 0.6);
@@ -26,35 +26,44 @@
 
 	&-upload-image-btn {
 		@include global-btn;
-		background-color:goldenrod;
-		color:azure;
-		border: 2px solid goldenrod;
-	
-		&:hover {
-			background-color: azure;
-			color: goldenrod;
-		}
+		@include btn-hover-effect;
+		background-color:whitesmoke;
+		color:goldenrod;
+		border: 2px solid whitesmoke;
 	}
 
 
 	&-create-card-form {
-		margin: 10% auto;
+		width: 70%;
+		background: linear-gradient(rgba(1,135,134, 0.5), rgba(1,135,134,0.5));
+		margin: 5% auto;
+		@include form-shadow;
+		border-radius: 5px;
+		padding: 2%;
+	}
+
+	&-create-card-form-info {
+		font-size: 12px;
 	}
 
 	&-create-card-input {
 		width: 100%;
 		outline: none;
 		border: none;
-		padding: 10px 35px;
+		padding: 7px 35px;
 		margin: 2% 0;
-		border-radius: 3px;
-		font-size: 18px;
-		background-color:ghostwhite;
-		border: 2px solid transparent;
-		transition: all ease-out 0.4s;
+		font-size: 14px;
+		background-color:transparent;
+		color: whitesmoke;
+		border-bottom: 1px solid whitesmoke;
+		transition: all 0.2s;
 
 		&:focus {
-			border-color: cadetblue;
+			border-bottom: 2px solid whitesmoke;
+		}
+
+		&::placeholder {
+			color: whitesmoke;
 		}
 	}
 
@@ -79,14 +88,10 @@
 
 	&-forms-create-btn {
 		@include global-btn;
-		background-color:cadetblue;
-		color:azure;
-		border: 2px solid cadetblue;
-	
-		&:hover {
-			background-color: azure;
-			color: cadetblue;
-		}
+		@include btn-hover-effect;
+		background-color:whitesmoke;
+		color:rgba(1,135,134,0.85);
+		border: 2px solid whitesmoke;
 	}
 
 	.container-cards {
