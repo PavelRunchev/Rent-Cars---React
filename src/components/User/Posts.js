@@ -48,9 +48,16 @@ class Posts extends React.Component {
 
 	async getAllPost() {
 		if(this._isMounted) {
-			const data = await RequestPost.allPosts();
-			if(this._isMounted && data.status === 200)
-				await this.setState({ posts: data.data });
+			try {
+				const data = await RequestPost.allPosts();
+				if(this._isMounted && data.status === 200)
+					await this.setState({ posts: data.data });
+			} catch(err) {
+				if(err.message === 'Network Error') {
+					return this.props.errorIsNetwotk(true);
+				} else 
+					Error(err);
+			}
 		}
 	}
 
@@ -178,11 +185,9 @@ class Posts extends React.Component {
 				if(err.response !== undefined) {
 					this.removeMessageHideAnimation();
 					myToastr.error(`${err.response.data.message}`);
-				} else {
-					const isSetState = Error(err);
-					if(isSetState)
-						this.setState({ redirect: '/error/internal-server-error' });
-				}
+				} 
+					
+				Error(err);
 			};
 		}
 	}

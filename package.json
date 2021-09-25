@@ -1,5 +1,5 @@
 {
-  "name": "demo",
+  "name": "rentcar",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -23,6 +23,8 @@
     "express": "^4.17.1",
     "fs": "0.0.1-security",
     "ignore-styles": "^5.0.1",
+    "mdb-react-ui-kit": "^1.3.0",
+    "mdbreact": "^5.1.0",
     "node-sass": "^5.0.0",
     "path": "^0.12.7",
     "react": "^17.0.1",
@@ -32,7 +34,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "react-test-renderer": "^17.0.1",
-    "web-vitals": "^1.1.0"
+    "react-yall": "^0.1.7"
   },
   "scripts": {
     "start": "react-scripts start",

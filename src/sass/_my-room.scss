@@ -1,16 +1,31 @@
+@import './_mixin';
 
 .my-room {
 	width: 100%;
+	background: linear-gradient(rgba($blue-color, 0.15), rgba($blue-color,0.15));
+	border-radius: 5px;
+	@include form-shadow;
+	padding: 5% 3%;
 
-	&-forms {
-		width: 100%;
-		background: linear-gradient(rgba(1,135,134, 0.35), rgba(1,135,134,0.35));
-		border-radius: 5px;
-		-webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.6);
-		-moz-box-shadow:    0px 0px 5px 0px rgba(50, 50, 50, 0.6);
-		box-shadow:         0px 0px 5px 0px rgba(50, 50, 50, 0.6);
-		padding: 5% 3%;
+	&-form {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	&-form-first-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	&-p {
+		text-align: left;
+	}
+
+	&-nouploadimage-h3 {
 		text-align: center;
+		margin: 10% 0;
 	}
 
 	&-profile-img-photo {
@@ -18,54 +33,123 @@
 		height: 200px;
 		display: block;
 		margin: 2% auto;
-		border-radius: 3px;
-		-webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.6);
-		-moz-box-shadow:    0px 0px 5px 0px rgba(50, 50, 50, 0.6);
-		box-shadow:         0px 0px 5px 0px rgba(50, 50, 50, 0.6);
+		border-radius: 5px;
+		@include form-shadow;
 	}
 
 	&-upload-image-btn {
 		@include global-btn;
-		@include btn-hover-effect;
-		background-color:whitesmoke;
-		color:goldenrod;
-		border: 2px solid whitesmoke;
+		display: block;
+		margin: 0 auto;
+		background-color: rgba($blue-color, 0.7);
+		color:$white-background;
 	}
 
+	&-admin-container {
+		width: 100%;
 
-	&-create-card-form {
-		width: 70%;
-		background: linear-gradient(rgba(1,135,134, 0.5), rgba(1,135,134,0.5));
-		margin: 5% auto;
-		@include form-shadow;
-		border-radius: 5px;
-		padding: 2%;
+		&-h3 {
+			text-align: center;
+		}
+
+		&-form {
+			width: 600px;
+			background: linear-gradient(rgba($white-background, 0.5), rgba($white-background,0.5));
+			margin: 5% auto;
+			@include form-shadow;
+			border-radius: 5px;
+			padding: 2%;
+
+			&-h2 {
+				text-align: center;
+				color: $blue-color;
+			}
+
+			&-input-container {
+				@include flex-box(row, space-around, center);
+			}
+
+			&-input {
+				width: 45%;
+				outline: none;
+				border: none;
+				padding: 7px 35px;
+				margin: 2% 0;
+				font-size: 14px;
+				background-color:transparent;
+				color: $black-color;
+				border-bottom: 1px solid $blue-color;
+				transition: all 0.2s;
+		
+				&:focus {
+					border-bottom: 2px solid $blue-color;
+				}
+		
+				&::placeholder {
+					color: $black-color;
+				}
+			}
+
+			&-input-url {
+				margin: 10px 0;
+				outline: none !important;
+				border: none !important;
+				&:focus {
+					background-color: transparent !important;
+					outline: $blue-color !important;
+					border-color: $blue-color !important;
+				}
+			}
+
+			&-select-advanced-options {
+				display: flex;
+				justify-content: space-around;
+				margin: 3% 0;
+			}
+
+			&-select-container {
+				width: 40%;
+				display: flex;
+				justify-content: space-around;
+			}
+
+			&-select {
+				width: 125px;
+				height: 35px;
+				margin: auto 0;
+				outline: none;
+				line-height: normal;
+				background-color: rgba($white-background, 1);
+				border: 2px solid transparent;
+				border-radius: 3px;
+				padding: 2px 10px;
+				@include form-shadow;
+				transition: all 0.4s;
+
+				&:focus {
+					border-color: $blue-color;
+				}
+
+				&-label {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					margin-bottom: 0;
+				}
+			}
+
+			&-create-btn {
+				@include global-btn;
+				background-color: $white-background;
+				color: $blue-color;
+			}
+		}
 	}
 
-	&-create-card-form-info {
+	&-create-car-form-info {
 		font-size: 12px;
 	}
-
-	&-create-card-input {
-		width: 100%;
-		outline: none;
-		border: none;
-		padding: 7px 35px;
-		margin: 2% 0;
-		font-size: 14px;
-		background-color:transparent;
-		color: whitesmoke;
-		border-bottom: 1px solid whitesmoke;
-		transition: all 0.2s;
-
-		&:focus {
-			border-bottom: 2px solid whitesmoke;
-		}
-
-		&::placeholder {
-			color: whitesmoke;
-		}
-	}
+	
 
 	&-forms-create-card-textarea {
 		border: none;
@@ -85,43 +169,4 @@
 			border-color: cadetblue;
 		}
 	}
-
-	&-forms-create-btn {
-		@include global-btn;
-		@include btn-hover-effect;
-		background-color:whitesmoke;
-		color:rgba(1,135,134,0.85);
-		border: 2px solid whitesmoke;
-	}
-
-	.container-cards {
-		width: 100%;
-		margin: 5% 0;
-	}
-
-	&-card {
-		width: 80%;
-		height: auto;
-		margin: 3% auto;
-		padding-bottom: 10px;
-		overflow: hidden;
-		background: linear-gradient(rgba(95,158,160,0.3), rgba(95,158,160,0.3));
-		border-radius: 3px;
-		-webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.6);
-		-moz-box-shadow:    0px 0px 5px 0px rgba(50, 50, 50, 0.6);
-		box-shadow:         0px 0px 5px 0px rgba(50, 50, 50, 0.6);
-	}
-
-	&-card-img-url {
-		width: 100%;
-		height: 360px;
-	}
-
-	&-card-paragraph {
-		color:rgba(50, 50, 50, 0.8);
-		margin: 0;
-		padding: 0 0 0 10px;
-		text-align: center;
-	}
-	
 }

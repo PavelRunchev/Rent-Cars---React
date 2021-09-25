@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { NavLink } from 'react-router-dom';
+import { MDBAccordion, MDBAccordionItem } from 'mdb-react-ui-kit';
 
 //hook
 function Count() {
@@ -79,6 +80,30 @@ class About extends React.Component {
 
 						The great attention to detail and interactivity also reflect the company’s 16 years of experience.
 					</p>
+
+					<MDBAccordion initialActive='accordionCollapse1'>
+						<MDBAccordionItem collapseId='accordionCollapse1' headerTitle='Example'>
+							<strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse
+							plugin adds the appropriate classes that we use to style each element. These classes control the overall
+							appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with
+							custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go
+							within the .accordion-body, though the transition does limit overflow.
+						</MDBAccordionItem>
+						<MDBAccordionItem collapseId='accordionCollapse2' headerTitle='Project'>
+							<strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse
+							plugin adds the appropriate classes that we use to style each element. These classes control the overall
+							appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with
+							custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go
+							within the .accordion-body, though the transition does limit overflow.
+						</MDBAccordionItem>
+						<MDBAccordionItem collapseId='accordionCollapse3' headerTitle='Testing'>
+							<strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse
+							plugin adds the appropriate classes that we use to style each element. These classes control the overall
+							appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with
+							custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go
+							within the .accordion-body, though the transition does limit overflow.
+						</MDBAccordionItem>
+					</MDBAccordion>
 				</div>
 		)
 	}

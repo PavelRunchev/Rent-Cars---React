@@ -1,0 +1,24 @@
+@import './_mixin';
+
+.network-error {
+	width: 100%;
+	padding: 3% 0;
+
+	& > h1,
+	& > h4 {
+		text-align: center;
+		margin: 1% 0;
+	}
+
+	&-container {
+		width: 100%;
+	}
+
+	&-logo-img {
+		width: 30%;
+		display: block;
+		margin: 0 auto;
+		border-radius: 3px;
+		@include form-shadow;
+	}
+}

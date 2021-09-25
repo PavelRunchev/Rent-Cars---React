@@ -1,11 +1,3 @@
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { faCcPaypal } from '@fortawesome/free-brands-svg-icons';
-import {
-  faArrowAltCircleLeft, faCaretDown, faCheck, faCog, faCommentAlt,
-  faComments, faEnvelope, faEnvelopeSquare, faExclamationCircle,
-  faExclamationTriangle, faEye, faEyeSlash, faHeart, faLock, faMapMarkerAlt,
-  faMobileAlt, faShare, faTimes, faTrash, faTrashAlt, faUser, faUserTie
-} from "@fortawesome/free-solid-svg-icons";
 import React, { lazy, Suspense } from 'react';
 import cookie from 'react-cookies';
 import { HashRouter, Route, Switch } from 'react-router-dom';
@@ -16,8 +8,10 @@ import Footer from './components/footer/Footer';
 import Loading from './components/Loading/Loading';
 //Components
 import Navigation from './components/navigation/Navigation';
+import Title from './components/Title/Title';
 import PageNotFound from './components/PageNotFound';
 import PotentialError from './components/PotentialError';
+import NetworkError from './components/NetworkError';
 import Posts from './components/User/Posts';
 import AuthContext from './services/authContext';
 import auth from './utilities/auth';
@@ -25,14 +19,26 @@ import Error from './utilities/error';
 import RequestUser from './utilities/RequestUser';
 import myToastr from './utilities/toastr';
 
+import navScrollEffect from './services/navbarScrollEffect';
 
-
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faCcPaypal } from '@fortawesome/free-brands-svg-icons';
+import {
+  faAngleDown,
+  faAngleUp,
+  faArrowAltCircleLeft, faBars, faCaretDown, faCaretRight, faCaretUp, faCheck, faCloudUploadAlt, faCog, faCommentAlt,
+  faComments, faDatabase, faEnvelope, faEnvelopeSquare, faExclamationCircle,
+  faExclamationTriangle, faEye, faEyeSlash, faHeart, faLock, faMapMarkerAlt,
+  faMobileAlt, faPortrait, faRocket, faShare, faSignOutAlt, faTh, faTimes, faTrash, faTrashAlt, faUser, faUserCheck, faUserTie
+} from "@fortawesome/free-solid-svg-icons";
 
 
 library.add( faTrash, faCheck, faExclamationCircle, faExclamationTriangle, 
   faUser, faUserTie, faEnvelope, faLock, faMapMarkerAlt, faMobileAlt, faHeart, faCaretDown, 
   faTimes, faShare, faEye, faComments, faArrowAltCircleLeft, faCommentAlt, faEnvelopeSquare, 
-  faTrashAlt, faEyeSlash, faEye, faCog, faExclamationTriangle, faCcPaypal);
+  faTrashAlt, faEyeSlash, faEye, faCog, faExclamationTriangle, faCcPaypal, faDatabase, 
+  faCloudUploadAlt, faRocket, faAngleDown, faAngleUp, faCaretRight, faCaretUp, faSignOutAlt, 
+  faPortrait, faTh, faUserCheck, faBars);
 
 const About = lazy(() => import('./components/About'));
 const Contacts = lazy(() => import('./components/Contacts'));
@@ -48,11 +54,17 @@ class App extends React.Component {
     this.state = {
       user: null,
       profileImageUrl: null,
-      isRemoveMessage: false
+      isRemoveMessage: false,
+      networkError: false
     }
 
     this.openWidget = this.openWidget.bind(this);
     this.saveUserDataInGlobalState = this.saveUserDataInGlobalState.bind(this);
+    this.errorIsNetwotk = this.errorIsNetwotk.bind(this);
+  }
+
+  componentDidMount() {
+      navScrollEffect();
   }
 
   saveUserDataInGlobalState(u) {
@@ -99,40 +111,54 @@ class App extends React.Component {
 		}
 	}
 
+  async errorIsNetwotk(err) {
+    if(err) await this.setState({ networkError: true });
+  }
+
   render () {
+    const { networkError } = this.state;
     const data = { 
       user: this.state.user, 
       profileImageUrl: this.state.profileImageUrl 
     };
 
     return (
-      <div className="App">
-        <PotentialError>
+      <div className="app" onScroll={this.onScrollingNav}>
+       
+        <PotentialError networkError={this.errorIsNetwotk}>
           <HashRouter>
               <AuthContext.Provider value={data}>
-                <Navigation getData={this.saveUserDataInGlobalState}/>
-                <main>
-                  <div className="main-container">
-                    <Posts isShowRemove={this.removeMessageShow}/>
-                    <Suspense fallback={<Loading/>}>
-                          <Switch>
-                            <Route exact path="/" component={() => <Cars/>}/>
-                            <Route exact path="/home" component={() => <Cars/>}/>
-                            <Route exact path="/about" component={() => <About/>} />
-                            <Route exact path="/contacts" component={Contacts}/>
-                            <Route exact path="/gallery" component={() => auth.isLogged() ? <Gallery/> : <SignIn/>}/>
-                            <Route exact path="/my-room" component={() => auth.isLogged() ? <MyRoom widget={this.openWidget}/> : <SignIn/>}/>
-                            <Route exact path="/sign-in" component={() => <SignIn/>}/>
-                            <Route exact path="/sign-up" component={() => <SignUp/>}/>
-                            <Route exact path="/error/internal-server-error" component={PotentialError}/>
+                <Navigation getData={this.saveUserDataInGlobalState} errorIsNetwotk={this.errorIsNetwotk}/>
+                {networkError ? <NetworkError/> : 
+                  <>
+                    
+                    <Title />
+                    <main>
+                      <div className="main-container">
+                        <Posts isShowRemove={this.removeMessageShow} errorIsNetwotk={this.errorIsNetwotk}/>
+                        
+                        <Suspense fallback={<Loading/>}>
+                              <Switch>
+                                  <Route exact path="/" component={() => <Cars errorIsNetwotk={this.errorIsNetwotk}/>}/>
+                                  <Route exact path="/home" component={() => <Cars errorIsNetwotk={this.errorIsNetwotk}/>}/>
+                                  <Route exact path="/about" component={() => <About/>} />
+                                  <Route exact path="/contacts" component={Contacts}/>
+                                  <Route exact path="/gallery" component={() => auth.isLogged() ? <Gallery errorIsNetwotk={this.errorIsNetwotk}/> : <SignIn/>}/>
+                                  <Route exact path="/my-room" component={() => auth.isLogged() ? <MyRoom widget={this.openWidget} errorIsNetwotk={this.errorIsNetwotk}/> : <SignIn/>}/>
+                                  <Route exact path="/sign-in" component={() => <SignIn/>}/>
+                                  <Route exact path="/sign-up" component={() => <SignUp/>}/>
+                                  <Route exact path="/error/internal-server-error" component={PotentialError}/>
 
-                            <Route path="*" component={PageNotFound}/>
-                          </Switch>
-                    </Suspense>
-                  </div>
-                </main>
+                                  {<Route path="*" component={PageNotFound}/>}
+                                }
+                              </Switch>
+                        </Suspense>
+                      </div>
+                    </main>
+                    <Footer />
+                  </>}
+
               </AuthContext.Provider>
-            <Footer />
           </HashRouter>
         </PotentialError>
       </div>

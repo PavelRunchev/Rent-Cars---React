@@ -1,11 +1,10 @@
 import { Component } from 'react';
-import { Redirect } from "react-router-dom";
-import Car from './Car/Car';
-import Loading from './Loading/Loading';
+import cookie from 'react-cookies';
+import Error from '../utilities/error';
 import RequestCard from '../utilities/RequestCard';
 import myToastr from '../utilities/toastr';
-import error from  '../utilities/error';
-import cookie from 'react-cookies';
+import Car from './Car/Car';
+import Loading from './Loading/Loading';
 import RemoveMessage from './User/RemoveMessage';
 
 class Cars extends Component {
@@ -17,7 +16,6 @@ class Cars extends Component {
 			isLoading: true,
 			cars: [],
 			isChange: false,
-			redirect: null,
 			isRemoveMessageShow: false,
 			removeCarId: null,
 		}
@@ -59,35 +57,13 @@ class Cars extends Component {
 					if(this._isMounted)
 						this.setState({ cars: data.data.data, isLoading: false });
 				}).catch(err => {
-					if(err.status === 500)
-					//internal server error component!
-					this.setState({ redirect: '/error/internal-server-error' });
-					myToastr.error(err); 
+					if(err.message === 'Network Error') {
+						return this.props.errorIsNetwotk(true);
+					} else 
+						Error(err);
 				});
 		}
 	}
-
-	// async removeCar(id) {
-	// 	if(this._isMounted) {
-	// 		try {
-	// 			const adminToken = cookie.load('a-%l@z_98q1&');
-	// 			if(!adminToken) {
-	// 				myToastr.error('Log in your account!');
-	// 				return this.props.history.push('/sign-in');
-	// 			}
-
-	// 			const data = await RequestCard.removeCard(id, adminToken);
-	// 			console.log(data)
-	// 			let newArr = await [...this.state.cars].filter(i => i._id !== id);
-	// 			await this.setState({ cars: newArr });
-	// 			myToastr.info('Car deleted successfully!');
-	// 		} catch(err) {
-	// 			const isSetState = error(err);
-	// 			if(isSetState)
-	// 				this.setState({ redirect: '/error/internal-server-error' });
-	// 		};
-	// 	}
-	// }
 
 	changeHandler = async () => {
 		if(this._isMounted) {
@@ -125,7 +101,6 @@ class Cars extends Component {
 		}, 400);	
 	}
 
-
 	async removeCar(e) {
 		e.preventDefault();
 		const { removeCarId } = this.state;
@@ -148,11 +123,13 @@ class Cars extends Component {
 					this.removeMessageHideAnimation();
 				}
 			} catch(err) {
-				if(err.response !== undefined) {
+				if(err.message === 'Network Error') {
+					this.props.errorIsNetwotk(true);
+				} else if(err.response !== undefined) {
 					this.removeMessageHideAnimation();
 					myToastr.error(`${err.response.data.message}`);
 				} else {
-					const isSetState = error(err);
+					const isSetState = Error(err);
 					if(isSetState)
 						this.setState({ redirect: '/error/internal-server-error' });
 				}
@@ -160,17 +137,13 @@ class Cars extends Component {
 		}
 	}
 
-
 	render () {
 		const { isLoading, cars, isRemoveMessageShow } = this.state;
-
-		if (this.state.redirect) return <Redirect to={this.state.redirect} />
 
 		if(this._isMounted) {
 			return (
 				<>
 					<div className="primary-container">
-						<h2>Rent Cars</h2>
 						<div className="container">
 							{isLoading === true ? <Loading />
 									: cars.length === 0 ? 
@@ -198,8 +171,6 @@ class Cars extends Component {
 		} else {
 			return null;
 		}
-
-		
 	}
 }
 

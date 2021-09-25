@@ -58,7 +58,12 @@ class Gallery extends React.Component {
 					if(this._isMounted) 
 						this.setState({ pictures: data.data.data, isLoading: false });
 				}).catch(err => {
-					Error(err);
+					if(err.message === 'Network Error') {
+						return this.props.errorIsNetwotk(true);
+					} else if(err.response.data.message !== undefined)
+						myToastr.error(`${err.response.data.message}`);
+					else 
+						myToastr.error(`${err}`);
 				});
 		}	
 	}

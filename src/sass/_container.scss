@@ -1,34 +1,33 @@
+@import './_fonts';
+@import './_mixin';
+
 .app {
+	min-height: 100vh;
 	position: relative;
 }
 
 .main-container {
 	width: 100%;
 	margin: 0;
-	padding: 0% 3%;
-	background: linear-gradient(rgba(1,135,134,0.15), rgba(1,135,134,0.15));
-
-	h2 {
-		text-align: center;
-	}
+	padding: 0% 0% 3% 0%;
+	background: linear-gradient(rgba($blue-color,0.1), rgba($blue-color,0.1));
 }
 
 
 .container {
-	width: 100%;
-	min-height: 100vh;
-	display: flex;
-	flex-flow: row wrap;
-	justify-content: space-around;
+	width: 100% !important;
+	max-width: 100% !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	@include flex-box(column, space-around, center);
 	align-items: center;
 }
-
 
 .primary-container {
 	width: 65%;
 	margin: 0 auto;
 	padding: 5% 3%;
-	background-color:rgb(255,255,255);
+	background-color:rgba($white-background, 0.75);
 
 	h2 {
 		text-align: center;

@@ -1,6 +1,7 @@
 import dateConvert from '../../utilities/dateConvert';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import auth from '../../utilities/auth';
 
 class Post extends React.Component {
 	constructor(props) {
@@ -51,17 +52,17 @@ class Post extends React.Component {
 
 		return (
 			<>
-				<div className="post-user-container" style={{backgroundColor: index % 2 === 0 ? 'rgba(245,245,220,1)' : 'none'}}>
+				<div className="post-user-container" style={{backgroundColor: index % 2 === 0 ? 'rgba(251,239,181, 0.85)' : 'none'}}>
 					<div className="post-user-profile-container">
 						<img src={imageUrl} className="post-image" alt="post-img"/>
-						<h6 className="post-creator-email" style={{color: index % 2 === 0 ? 'rgba(1,135,134,1)' : 'rgba(245,245,220,1)'}}>{userFirstName}</h6>
+						<h6 className="post-creator-email" style={{color: index % 2 === 0 ? 'rgba(69,117,182, 1)' : 'rgba(251,239,181, 1)'}}>{userFirstName}</h6>
 					</div>
 					<div className="post-user-content-container">
-						<div className="post-user-content-title-container" style={{color: index % 2 === 0 ? 'rgba(1,135,134,1)' : 'rgba(245,245,220,1)'}}>
-							<h6 className="post-date" style={{color: index % 2 === 0 ? 'rgba(1,135,134,1)' : 'rgba(245,245,220,1)'}}>{convertTime}</h6>
-							<h6 className="post-user-index" style={{color: index % 2 === 0 ? 'rgba(1,135,134,1)' : 'rgba(245,245,220,1)'}}>#{index}</h6>
+						<div className="post-user-content-title-container" style={{color: index % 2 === 0 ? 'rgba(69,117,182, 1)' : 'rgb(251,239,181)'}}>
+							<h6 className="post-date" style={{color: index % 2 === 0 ? 'rgba(69,117,182, 1)' : 'rgb(251,239,181)'}}>{convertTime}</h6>
+							<h6 className="post-user-index" style={{color: index % 2 === 0 ? 'rgba(69,117,182, 1)' : 'rgb(251,239,181)'}}>#{index}</h6>
 							<div className="post-user-admin-settings-container">
-								<FontAwesomeIcon icon="cog" className="post-user-cog-btn" onClick={this.adminOptions}/>
+								{auth.isAdmin() ? <FontAwesomeIcon icon="cog" className="post-user-cog-btn" onClick={this.adminOptions}/> : null}
 								{showAdminOptions ? <div className="post-user-admin-settings">
 									<FontAwesomeIcon icon="trash-alt" className="post-user-trash-btn" onClick={(e) => this.props.isShowRemove(e, _id)}/>
 									{isBan 
@@ -73,7 +74,7 @@ class Post extends React.Component {
 							</div>
 						</div>
 						
-						{isBan ? <h5 style={{color: 'darkred', textAlign: 'center'}}>The post was banned!</h5> : <p className="post-content" style={{color: index % 2 === 0 ? 'black' : 'whitesmoke'}}>{content}</p>}
+						{isBan ? <h5 style={{color: 'darkred', textAlign: 'center', margin: '30px 0px'}}>The post was banned!</h5> : <p className="post-content" style={{color: index % 2 === 0 ? 'black' : 'whitesmoke'}}>{content}</p>}
 					</div>
 				</div>
 

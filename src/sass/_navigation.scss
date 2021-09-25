@@ -1,115 +1,560 @@
-.navigation-container {
+@import './_fonts.scss';
+@import './_mixin.scss';
+@import './_animation.scss';
+@import './_breakpoints.scss';
+
+.app {
+	position: relative;
+}
+
+.navigation {
 	width: 100%;
-	background: linear-gradient(rgba(1,135,134,0.85), rgba(1,135,134,0.85));
+	background: linear-gradient(rgba($white-background, 0.98), rgba($white-background, 0.98));
 	color:azure;
 	padding: 1%;
 	position: sticky;
 	top: 0;
-	display: flex;
-	align-items: center;
 	z-index: 999;
+	transition: all 0.4s;
+
+	@include for-phone-only {
+		height: auto;
+		@include flex-box(column, space-between, center);
+	}
+
+	@include for-tablet-portrait-up {
+		height: auto;
+		@include flex-box(column, space-between, center);
+	}
+
+	@include for-tablet-landscape-up {
+		height: 85px;
+		@include flex-box(row, space-between, center);
+	}
+
+	&-logo-container {
+		@include for-phone-only {
+			position: static;
+			width: 100%;
+		}
+
+		@include for-tablet-portrait-up {
+			position: static;
+			width: 100%;
+		}
+
+		@include for-tablet-landscape-up {
+			position: relative;
+			width: auto;
+		}
+	}
 
 	&-logo {
-		width: 4rem;
+		width: 7rem;
 		height: auto;
+		z-index: 1001;
 		margin-top: 0;
 		margin-bottom: 0;
-		border-radius: 5px;
+		border-radius: 50%;
 		@include global-shadow;
+		transition: all 0.4s;
+
+		@include for-phone-only {
+			position: static;
+			display: block;
+			margin: 2% auto 2% 0;
+		}
+
+		@include for-tablet-portrait-up {
+			position: static;
+			display: block;
+			margin: 2% auto 2% 0;
+		}
+
+		@include for-tablet-landscape-up {
+			position: relative;
+			top: 40px;
+			left: 10px;
+			margin: 2% 0;
+		}
 	}
 
-	ul {
+	&-second-container {
+		width: 100%;
+
+		@include for-phone-only {
+			display: none;
+		}
+
+		@include for-tablet-portrait-up {
+			display: none;
+		}
+
+		@include for-tablet-landscape-up {
+			display: block;
+			position: relative;
+			z-index: 1001;
+		}
+	}
+
+	&-list {
 		list-style: none;
-		margin: 0 auto;
-		width: 70%;
-		display: flex;
-		flex-flow: row wrap;
-		justify-content: space-around;
-		align-items: center;
+		@include for-phone-only {
+			width: 100%;
+			@include flex-box(column, flex-start, center);
+			margin: 0;
+		}
+
+		@include for-tablet-portrait-up {
+			width: 100%;
+			@include flex-box(column, flex-start, center);
+			margin: 0;
+		}
+
+		@include for-tablet-landscape-up {
+			width: 500px;
+			@include flex-box(row, space-around, center);
+			margin: 0 auto;
+		}
 	}
 
-	li {
-		width: 95px;
-		height: 70px;
+	&-item {
+		opacity: 0;
+		position: relative;
+		height: 100%;
 		background-color: transparent;
-		display: flex;
-		justify-content: center;
-		align-items: center;
+		@include flex-box(row, center, center);
+		transition: all 0.3s;
+
+		@include for-phone-only {
+			width: 100%;
+			animation: isShow 0.4s ease-out forwards;
+
+			@for $i from 1 through 5 {
+				&:nth-child(#{$i}){
+				  animation-delay: $i * 0.05s;
+				}
+			}
+		}
+
+		@include for-tablet-portrait-up {
+			width: 100%;
+			animation: isShow 0.4s ease-out forwards;
+
+			@for $i from 1 through 5 {
+				&:nth-child(#{$i}){
+				  animation-delay: $i * 0.05s;
+				}
+			}
+		}
+
+		@include for-tablet-landscape-up {
+			width: auto;
+		}
 	}
 
-	a {
+	&-link-hover-link {
 		cursor: pointer;
 		text-decoration: none;
-		font-size: 22px;
-		color:beige;
+		position: relative;
+		font-size: 20px;
+		font-weight: 400;
+		color: $blue-color !important;
 		border-bottom: 2px solid transparent;
+		
+		transition: all 0.3s;
+
+		&:hover {
+			color: $blue-dark-color !important;
+		}
+
+		@include for-phone-only {
+			width: 100%;
+		}
+
+		@include for-tablet-portrait-up {
+			width: 100%;
+		}
+
+		@include for-tablet-landscape-up {
+			width: auto;
+		}
+	}
+
+	&-link-hover-line {
+		width: 0;
+		position: absolute;
+		right: 100%;
+		bottom: 0;
+		height: 2px;
+		background-color: $blue-color;
+		transition: all 0.3s;
+
+		@include for-phone-only {
+			opacity: 0;
+		}
+
+		@include for-tablet-portrait-up {
+			opacity: 0;
+		}
+
+		@include for-tablet-landscape-up {
+			opacity: 1;
+		}
+	}
+	
+	&-link-hover-link:hover ~ &-link-hover-line {
+		width: 100%;
+		right: 0;
+	}
+
+	&-menu-angle-down {
+		position: relative;
+		top: 2px;
+		left: 3px;
+	}
+
+	&-profile-list {
+		list-style: none;
+		margin: 0 auto;
+
+		@include for-phone-only {
+			display: none;
+			width: 100%;
+			@include flex-box(column, space-around, center);
+		}
+
+		@include for-tablet-portrait-up {
+			display: none;
+			width: 100%;
+			@include flex-box(column, space-around, center);
+		}
+
+		@include for-tablet-landscape-up {
+			display: flex;
+			width: 250px;
+			@include flex-box(row, space-around, center);
+		}
+
+		@include for-desktop-up {
+			display: flex;
+			width: 250px;
+			@include flex-box(row, space-around, center);
+		}
+	}
+
+	&-profile-item {
+		opacity: 0;
+		position: relative;
+		height: 100%;
+		background-color: transparent;
+		@include flex-box(row, center, center);
+		transition: all 0.3s;
+
+		@include for-phone-only {
+			width: 100%;
+			animation: isShow 0.4s ease-out forwards;
+
+			@for $i from 1 through 5 {
+				&:nth-child(#{$i}){
+				  animation-delay: $i * 0.05s;
+				}
+			}
+		}
+
+		@include for-tablet-portrait-up {
+			width: 100%;
+			animation: isShow 0.4s ease-out forwards;
+
+			@for $i from 1 through 5 {
+				&:nth-child(#{$i}){
+				  animation-delay: $i * 0.05s;
+				}
+			}
+		}
+
+		@include for-tablet-landscape-up {
+			width: auto;
+		}
+	}
+
+	&-profile-link {
+		width: 100%;
+		cursor: pointer;
+		text-decoration: none;
+		position: relative;
+		font-size: 20px;
+		font-weight: 400;
+		color: $blue-color !important;
+		border-bottom: 2px solid transparent;
+		transition: all 0.3s;
+
+		&:hover {
+			color: $blue-dark-color !important;
+		}
+	}
+
+	&-profile-link-hover-line {
+		width: 0;
+		position: absolute;
+		right: 100%;
+		bottom: 0;
+		height: 2px;
+		background-color: $blue-color;
+		transition: all 0.3s;
+
+		@include for-phone-only {
+			opacity: 0;
+		}
+
+		@include for-tablet-portrait-up {
+			opacity: 0;
+		}
+
+		@include for-tablet-landscape-up {
+			opacity: 1;
+		}
+	}
+	
+	&-profile-link:hover ~ &-profile-link-hover-line {
+		width: 100%;
+		right: 0;
+	}
+
+	&-bars-btn {
+		font-size: 26px;
+		color: $blue-color;
+		margin-right: 10px;
+		position: absolute;
+		top: 40px;
+		right: 20px;
+
+		@include for-phone-only {
+			display: block;
+			opacity: 1;
+		}
+
+		@include for-tablet-portrait-up {
+			display: block;
+			opacity: 1;
+		}
+
+		@include for-tablet-landscape-up {
+			display: none;
+			opacity: 0;
+		}
+	}
+
+
+	//Logged user!
+	&-my-profile-container {
+		@include for-phone-only {
+			width: 100%;
+			display: flex;
+			@include flex-box(row, flex-start, center);
+			padding-left: 2rem;
+		}
+
+		@include for-tablet-portrait-up {
+			width: 100%;
+			display: flex;
+			@include flex-box(row, flex-start, center);
+			padding-left: 2rem;
+		}
+
+		@include for-tablet-landscape-up {
+			width: 195px;
+			position: relative;
+			display: inline-block;
+			padding-left: 0;
+		}
+	}
+
+	&-profile {
+		display: inline-block;
+		cursor: pointer;
+		text-decoration: none;
+		position: relative;
+		font-size: 20px;
+		font-weight: 400;
+		color: $blue-color !important;
+		border-bottom: 2px solid transparent;
+		transition: all 0.3s;
+	
+		&:hover {
+			color: $blue-dark-color !important;
+		}
+	}
+
+	&-profile-icon-caret-down {
+		position: relative;
+		top: 3px;
+		left: 3px;
+		display: inline-block;
+	}
+
+	&-my-profile {
+		cursor: pointer;
+		opacity: 0;
+		width: 0;
+		height: 0;
+		position: absolute;
+		border-radius: 5px;
+		background: linear-gradient(rgba($blue-dark-color,0.95), rgba($blue-dark-color,0.95));
+		@include global-shadow;
+		display: flex;
+		flex-flow: column;
+		align-items: center;
+		color: dimgray;
+		transition: all 0.4s;
+		z-index: 100;
+		overflow: hidden;
+
+		@include for-phone-only {
+			top: 80px;
+			right: 5px;
+		}
+
+		@include for-tablet-portrait-up {
+			top: 80px;
+			right: 5px;
+		}
+
+		@include for-tablet-landscape-up {
+			top: 30px;
+			right: -5px;
+		}
+
+		@include for-desktop-up {
+			top: 30px;
+			right: -10px;
+		}
+
+		@include for-big-desktop-up {
+			top: 30px;
+			right: -20px;
+		}
+	}
+
+	&-profile-image {
+		width: 80px;
+		height: 80px;
+		border-radius: 50%;
+		margin: 8% auto;
+		transition: all 0.3s;
+		&:active {
+			transform: scale(1.5);
+		}
+	}
+
+	&-my-profile-title {
+		text-align: center;
+		font-weight: 300;
+		color: $yellow-color;
+	}
+
+	&-my-profile-list {
+		list-style: none;
+		margin: 0 auto;
+		width: 55%;
+		display: flex;
+		flex-flow: column;
+		justify-content: space-around;
+	}
+
+	&-my-profile-item {
+		position: relative;
+		margin: 5% 0;
+	}
+
+	&-my-profile-link {
+		cursor: pointer;
+		color: $yellow-color;
 		transition: all ease-out 0.3s;
 
 		&:hover {
-			transform: scale(1.1);
+			color: $yellow-color !important;
 		}
 	}
-}
 
-.my-profile-container {
-	position: relative;
-	display: inline-block;
-}
+	&-my-profile-link-icon {
+		opacity: 0;
+		position: absolute;
+		top: 5px;
+		left: -25px;
+		color: $yellow-color;
+		transition: all ease-out 0.3s;
+	}
 
-.nav-profile {
-	cursor: pointer;
-	border: none !important;
-
-	&:hover {
-		transform: scale(1) !important;
-		border: none !important;
+	&-my-profile-link:hover ~ &-my-profile-link-icon {
+		opacity: 1;
 	}
 }
 
-.my-profile {
-	cursor: pointer;
-	opacity: 0;
-	width: 0px;
+
+//navbar slide down
+.navigation-down-menu {
 	height: auto;
-	position: absolute;
-	top: 28px;
-	right: 0px;
-	padding: 10px;
-	border-radius: 5px;
-	background: linear-gradient(rgba(1,135,134,0.95), rgba(1,135,134,0.95));
+    
 	@include global-shadow;
-	display: flex;
-	flex-flow: column wrap;
-	align-items: center;
-	color: dimgray;
-	transition: all 0.4s;
-	z-index: 100;
-	overflow: hidden;
-}
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	background-color: rgba($white-background, 0.98);
+	z-index: 99;
+	padding: 35px 0;
+	transition: top 0.4s;
 
-
-.nav-profile-image {
-	width: 80px;
-	height: 80px;
-	border-radius: 50%;
-	transition: all 0.3s;
-	&:active {
-		transform: scale(2);
+	@include for-tablet-portrait-up {
+		position: fixed;
+		width: 100%;
+		top: 80px;
+		@include flex-box(row, center, center);
 	}
-}
 
-.my-profile-title {
-	text-align: center;
-	color: whitesmoke;
-}
+	@include for-tablet-landscape-up {
+		position: fixed;
+		width: calc(100% - 50%);
+		top: -170px;
+		left: calc(50% - 25%);
+		@include flex-box(row, space-around, center);
+	}
 
-.log-out {
-	color: dimgray;
-	margin: 2% auto;
-	transition: all ease-out 0.3s;
-	&:hover {
-		transform: scale(1.1);
-		border-bottom: 2px solid beige;
+	&-list {
+		list-style: none;
+		margin-bottom: 0;
+	}
+
+	&-item {
+		position: relative;
+	}
+
+	&-link {
+		display: block;
+		color: $blue-color;
+		font-size: 14px;
+		font-weight: 400;
+		transform: translateX(0px);
+		transition: all 0.4s;
+
+		&:hover {
+			color: $blue-color;
+			transform: translateX(13px);
+		}
+	}
+
+	&-link-caret-right {
+		opacity: 0;
+		font-size: 20px;
+		position: absolute;
+		top: 0;
+		left: -12px;
+		color: $blue-color;
+		transition: all 0.4s;
+	}
+
+	&-link:hover ~ &-link-caret-right {
+		opacity: 1;
+		transform: translateX(13px);
 	}
 }
 
